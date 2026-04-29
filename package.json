@@ -1,14 +1,14 @@
 {
-  "name": "hdf5.node18",
-  "description": "Native Abstractions for hdf5 file io, forked from https://github.com/HDF-NI/hdf5.node.git, upgrade to node18",
-  "version": "0.0.4",
+  "name": "hdf5.node24",
+  "description": "Native Abstractions for hdf5 file io, forked from https://github.com/HDF-NI/hdf5.node.git, upgraded for Node 24",
+  "version": "0.0.5",
   "main": "./index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/HanyuITK/hdf5-node18.node"
+    "url": "https://github.com/maankl/hdf5-node24.node"
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=18.0.0 <=24.x"
   },
   "devDependencies": {
     "mocha": "8.1.1",

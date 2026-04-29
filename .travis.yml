@@ -61,14 +61,16 @@ before_install:
 install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]] ; then
       echo ${HDF5_HOME};
-      npm install --longlong_type=LONGLONG53BITS --hdf5_home_mac=${HDF5_HOME_MAC};
+      export HDF5_HOME_MAC=${HDF5_HOME_MAC};
+      npm install --longlong_type=LONGLONG53BITS;
     elif [[ "$TRAVIS_OS_NAME" == "windows" ]] ; then
       echo "Windoes compiler?";
-      npm install --longlong_type=LONGLONG53BITS --hdf5_home_win=${HDF5_HOME_WIN};
+      export HDF5_HOME_WIN=${HDF5_HOME_WIN};
+      npm install --longlong_type=LONGLONG53BITS;
     else
       export HDF5_HOME_LINUX=/usr/lib/x86_64-linux-gnu/hdf5/serial;
       eval "${GCC_VERSION}" ;
-      npm install --longlong_type=LONGLONG53BITS --hdf5_home_linux=${HDF5_HOME_LINUX};
+      npm install --longlong_type=LONGLONG53BITS;
     fi
 
 before-scripte:

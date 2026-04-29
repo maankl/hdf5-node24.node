@@ -132,7 +132,10 @@ namespace NodeHDF5 {
     t->SetClassName(String::NewFromUtf8(isolate, "File", v8::NewStringType::kInternalized).ToLocalChecked());
     t->InstanceTemplate()->SetInternalFieldCount(1);
     t->InstanceTemplate()->SetHandler(v8::NamedPropertyHandlerConfiguration(
-      nullptr, nullptr, nullptr, QueryCallbackDelete));
+      static_cast<v8::NamedPropertyGetterCallback>(nullptr),
+      static_cast<v8::NamedPropertySetterCallback>(nullptr),
+      static_cast<v8::NamedPropertyQueryCallback>(nullptr),
+      static_cast<v8::NamedPropertyDeleterCallback>(QueryCallbackDelete)));
     Constructor.Reset(v8::Isolate::GetCurrent(), t);
     // member method prototypes
     setPrototypeMethod(isolate, t, v8::String::NewFromUtf8(isolate, "enableSingleWriteMultiRead", v8::NewStringType::kInternalized).ToLocalChecked(), EnableSingleWriteMultiRead);

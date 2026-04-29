@@ -1,7 +1,7 @@
 {
     "variables": {
-        "hdf5_home_linux%": "/usr/local",
-        "hdf5_home_win%": "C:/Software/hdf5",
+        "hdf5_home_linux%": "<!(node -e \"process.stdout.write(process.env.HDF5_HOME_LINUX || '/usr/lib/x86_64-linux-gnu/hdf5/serial')\")",
+        "hdf5_home_win%": "<!(node -e \"const p = process.env.HDF5_HOME_WIN || (process.env.CONDA_PREFIX ? process.env.CONDA_PREFIX.replace(/\\\\/g, '/') + '/Library' : 'C:/Software/hdf5'); process.stdout.write(p)\")",
         "hdf5_home_mac%": "/usr/local",
         "link_type%": "shared",
         "debug_mode%": "",

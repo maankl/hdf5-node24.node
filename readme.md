@@ -15,19 +15,17 @@ npm install hdf5
 ```
 See <http://hdf-ni.github.io/hdf5.node/doc/install-setup.html> for the native 
 requirements and details. If your native hdf5 libraries aren't at the default 
-you can set the path with --hdf5_home_linux switch on this project as well as 
-dependent projects.
+set HDF5_HOME_LINUX before install (preferred for npm 10+).
 
 ```bash
-npm install hdf5 --hdf5_home_linux=<your native hdf path>
+HDF5_HOME_LINUX=<your native hdf path> npm install hdf5
 ```
-For mac and windows the switches are --hdf5_home_mac & --hdf5_home_win
+For mac and windows use HDF5_HOME_MAC and HDF5_HOME_WIN.
 
 To install with yarn first need to configure so it knows where the libraries are:
 
 ```
-yarn config set hdf5_home_linux $HDF5_HOME
-yarn install
+HDF5_HOME_LINUX=$HDF5_HOME yarn install
 ```
 
 Note: If node-gyp isn't installed

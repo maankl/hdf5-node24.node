@@ -15,7 +15,7 @@
 
 namespace NodeHDF5 {
 
-    void Methods::QueryCallbackDelete(
+    v8::Intercepted Methods::QueryCallbackDelete(
         v8::Local<v8::Name> property, const v8::PropertyCallbackInfo<v8::Boolean>& info) {
     v8::Isolate* isolate = info.GetIsolate();
       //info.GetReturnValue().Set(v8::PropertyAttribute::DontDelete);
@@ -25,7 +25,11 @@ namespace NodeHDF5 {
         Methods* group       = ObjectWrap::Unwrap<Methods>(info.This());
         if(H5Aexists(group->id, (const char*)*attribute_name)){
             /*herr_t err =*/ H5Adelete(group->id, (const char*)*attribute_name);
+          info.GetReturnValue().Set(true);
+          return v8::Intercepted::kYes;
         }
+
+        return v8::Intercepted::kNo;
     }
 
   void Methods::GetNumAttrs(const v8::FunctionCallbackInfo<v8::Value>& args) {
