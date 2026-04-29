@@ -1,7 +1,7 @@
 {
   "name": "hdf5.node24",
   "description": "Native Abstractions for hdf5 file io, forked from https://github.com/HDF-NI/hdf5.node.git, upgraded for Node 24",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "main": "./index.js",
   "repository": {
     "type": "git",
